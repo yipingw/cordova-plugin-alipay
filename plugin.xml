@@ -13,7 +13,8 @@
         </config-file>
         <header-file src="src/ios/AlipayPlugin.h"/>
         <source-file src="src/ios/AlipayPlugin.m"/>
-        <source-file src="src/ios/Keys.h"/>
+        <header-file src="src/ios/AppDelegate+AppDelegate_alipay.h"/>
+        <source-file src="src/ios/AppDelegate+AppDelegate_alipay.m"/>
     </platform>
 
     <!-- android -->
@@ -54,10 +55,6 @@
         <source-file src="src/android/libs/alipayutdid.jar" target-dir="libs" framework="true" />
 
         <source-file src="src/android/AlipayPlugin.java" target-dir="src/com/vapps/alipay" />
-        <source-file src="src/android/Base64.java" target-dir="src/com/vapps/alipay" />
-        <source-file src="src/android/SignUtils.java" target-dir="src/com/vapps/alipay" />
-        <source-file src="src/android/Keys.java" target-dir="src/com/vapps/alipay" />
-        <source-file src="src/android/PayResult.java" target-dir="src/com/vapps/alipay" />
 
     </platform>
 </plugin>
