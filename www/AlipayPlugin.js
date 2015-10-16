@@ -14,7 +14,7 @@ Alipay.prototype.alipay = function(payInfo, successCallback, errorCallback) {
     }
 
     if (typeof successCallback != "function") {
-        console.log("psuccessCallback failure: success callback parameter must be a function");
+        console.log("successCallback failure: success callback parameter must be a function");
         return;
     }
 
@@ -28,5 +28,3 @@ Alipay.prototype.alipay = function(payInfo, successCallback, errorCallback) {
 
 var alipay = new Alipay();
 module.exports = alipay;
-
-});
