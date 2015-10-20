@@ -16,6 +16,54 @@
         <header-file src="src/ios/AppDelegate+AppDelegate_alipay.h"/>
         <source-file src="src/ios/AppDelegate+AppDelegate_alipay.m"/>
         <framework src="src/ios/libs/AlipaySDK.framework" custom="true"/>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+      <array>
+        <string>alipay</string>
+      </array>
+    </config-file>
+    <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+      <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+          <key>qiniu.com</key>
+          <dict>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+          </dict>
+          <key>alipay.com</key>
+          <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+          </dict>
+          <key>clouddn.com</key>
+          <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+          </dict>
+          <key>leancloud.cn</key>
+          <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+          </dict>
+        </dict>
+      </dict>
+    </config-file>
     </platform>
 
     <!-- android -->
