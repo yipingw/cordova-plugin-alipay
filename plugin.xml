@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="com.vapps.alipay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="com.vapps.alipay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>AlipayPlugin</name>
     <js-module name="AlipayPlugin" src="www/AlipayPlugin.js">
         <clobbers target="cordova.plugins.AlipayPlugin"/>
@@ -15,95 +14,94 @@
         <source-file src="src/ios/AlipayPlugin.m"/>
         <header-file src="src/ios/AppDelegate+AppDelegate_alipay.h"/>
         <source-file src="src/ios/AppDelegate+AppDelegate_alipay.m"/>
-        <framework src="src/ios/libs/AlipaySDK.framework" custom="true"/>
-        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
-      <array>
-        <string>alipay</string>
-      </array>
-    </config-file>
-    <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
-      <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-          <key>qiniu.com</key>
-          <dict>
-            <key>NSTemporaryExceptionMinimumTLSVersion</key>
-            <string>TLSv1.1</string>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-          </dict>
-          <key>alipay.com</key>
-          <dict>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-            <key>NSTemporaryExceptionMinimumTLSVersion</key>
-            <string>TLSv1.1</string>
-          </dict>
-          <key>clouddn.com</key>
-          <dict>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-            <key>NSTemporaryExceptionMinimumTLSVersion</key>
-            <string>TLSv1.1</string>
-          </dict>
-          <key>leancloud.cn</key>
-          <dict>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-            <key>NSTemporaryExceptionMinimumTLSVersion</key>
-            <string>TLSv1.1</string>
-          </dict>
-        </dict>
-      </dict>
-    </config-file>
+        <framework custom="true" src="src/ios/libs/AlipaySDK.framework"/>
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+          <array>
+            <dict>
+              <key>CFBundleTypeRole</key>
+              <string>None</string>
+              <key>CFBundleURLIconFile</key>
+              <string></string>
+              <key>CFBundleURLName</key>
+              <string>cn.mankr.mankr</string>
+              <key>CFBundleURLSchemes</key>
+              <array>
+                <string>mankr</string>
+              </array>
+            </dict>
+          </array>
+        </config-file>
+        <config-file parent="LSApplicationQueriesSchemes" target="*-Info.plist">
+            <array>
+                <string>alipay</string>
+            </array>
+        </config-file>
+        <config-file parent="NSAppTransportSecurity" target="*-Info.plist">
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                    <key>qiniu.com</key>
+                    <dict>
+                        <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                        <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                    </dict>
+                    <key>alipay.com</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                    </dict>
+                    <key>clouddn.com</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                    </dict>
+                    <key>leancloud.cn</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                        <true/>
+                        <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.1</string>
+                    </dict>
+                </dict>
+            </dict>
+        </config-file>
     </platform>
-
     <!-- android -->
     <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
+        <config-file parent="/*" target="res/xml/config.xml">
             <feature name="AlipayPlugin">
                 <param name="android-package" value="com.vapps.alipay.AlipayPlugin"/>
             </feature>
         </config-file>
-
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity
-                android:name="com.alipay.sdk.app.H5PayActivity"
-                android:configChanges="orientation|keyboardHidden|navigation"
-                android:exported="false"
-                android:screenOrientation="behind"
-                android:windowSoftInputMode="adjustResize|stateHidden" >
-            </activity>
-            <activity
-                android:name="com.alipay.sdk.auth.AuthActivity"
-                android:configChanges="orientation|keyboardHidden|navigation"
-                android:exported="false"
-                android:screenOrientation="behind" >
-            </activity>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <activity android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+            <activity android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind"/>
         </config-file>
-
-        <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.INTERNET" />
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
         </config-file>
-
-        <source-file src="src/android/libs/alipaysdk.jar" target-dir="libs" framework="true" />
-        <source-file src="src/android/libs/alipaysecsdk.jar" target-dir="libs" framework="true" />
-        <source-file src="src/android/libs/alipayutdid.jar" target-dir="libs" framework="true" />
-
-        <source-file src="src/android/AlipayPlugin.java" target-dir="src/com/vapps/alipay" />
-
+        <source-file framework="true" src="src/android/libs/alipaysdk.jar" target-dir="libs"/>
+        <source-file framework="true" src="src/android/libs/alipaysecsdk.jar" target-dir="libs"/>
+        <source-file framework="true" src="src/android/libs/alipayutdid.jar" target-dir="libs"/>
+        <source-file src="src/android/AlipayPlugin.java" target-dir="src/com/vapps/alipay"/>
     </platform>
 </plugin>
