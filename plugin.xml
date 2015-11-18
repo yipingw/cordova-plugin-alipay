@@ -104,7 +104,6 @@
         </config-file>
         <source-file framework="true" src="src/android/libs/alipaysdk.jar" target-dir="libs"/>
         <source-file framework="true" src="src/android/libs/alipaysecsdk.jar" target-dir="libs"/>
-        <source-file framework="true" src="src/android/libs/alipayutdid.jar" target-dir="libs"/>
         <source-file src="src/android/AlipayPlugin.java" target-dir="src/com/vapps/alipay"/>
     </platform>
 </plugin>
