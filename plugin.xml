@@ -12,8 +12,6 @@
         </config-file>
         <header-file src="src/ios/AlipayPlugin.h"/>
         <source-file src="src/ios/AlipayPlugin.m"/>
-        <header-file src="src/ios/AppDelegate+AppDelegate_alipay.h"/>
-        <source-file src="src/ios/AppDelegate+AppDelegate_alipay.m"/>
         <framework custom="true" src="src/ios/libs/AlipaySDK.framework"/>
         <config-file target="*-Info.plist" parent="CFBundleDevelopmentRegion">
           <string>zh_CN</string>
