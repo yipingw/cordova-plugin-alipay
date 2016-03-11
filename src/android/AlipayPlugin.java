@@ -30,7 +30,7 @@ public class AlipayPlugin extends CordovaPlugin  {
                         // 构造PayTask 对象
                         PayTask alipay = new PayTask(cordova.getActivity());
                         // 调用支付接口
-                        String result = alipay.pay(payInfo);
+                        String result = alipay.pay(payInfo, true);
 
                         //Log.i(TAG, "result = " + result);
                         callbackContext.success(result); // Thread-safe.
